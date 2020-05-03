@@ -3,15 +3,19 @@ var logger = require('morgan');
 
 var authenticationMiddleware = require("./middleware/authentication")
 var prometheusMiddleware = require("./middleware/prometheus")
-var indexRouter = require('./routes/index');
+var apiRouter = require('./routes/api');
 
 var app = express();
 
+// Middlewares
 app.use(logger('dev'));
 app.use(express.json());
 
+// Custom middlewares
 app.use(authenticationMiddleware)
 app.use(prometheusMiddleware)
-app.use('/', indexRouter);
+
+// Routes
+app.use('/api', apiRouter);
 
 module.exports = app;

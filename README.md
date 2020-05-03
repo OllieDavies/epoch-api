@@ -14,7 +14,11 @@ Start the API
 npm start
 ```
 
-### Testing
+This will expose the API at http://localhost:8000
+
+### Run tests
+
+Unit tests are implemented with Jest. Run the tests with:
 
 ```
 npm test
@@ -22,4 +26,8 @@ npm test
 
 ### Next steps
 
-TODO
+- Add CI integration (Circle, CodeSuite, etc.)
+- Deploy to EC2
+- Replace fixed API key with safer authentication (e.g. JWT)
+- Add integration tests for whole app
+- Tighten CORS configuration

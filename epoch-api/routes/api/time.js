@@ -2,8 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.send("Hello, world!")
-});
+router.get('/', handleRoot);
 
-module.exports = router;
+function handleRoot(req, res){
+  res.send({
+    epoch: Math.floor(new Date().getTime() / 1000)
+  })
+}
+
+module.exports = { 
+  router, 
+  handlers: {
+    handleRoot
+  }
+};
